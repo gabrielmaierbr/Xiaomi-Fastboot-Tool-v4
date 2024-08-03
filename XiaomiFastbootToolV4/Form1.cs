@@ -8,6 +8,7 @@ using System.Text;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace WindowsFormsApp1
 {
@@ -155,6 +156,144 @@ namespace WindowsFormsApp1
                         MessageBox.Show("Arquivos ADB não encontrados.\n\nInstale os Drivers ADB.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     break;
+
+                case "cmd":
+                    if (Directory.Exists(@"C:/adb"))
+                    {
+                        System.Diagnostics.Process process = new Process();
+                        process.StartInfo.WorkingDirectory = @"C:/adb";
+                        process.StartInfo.FileName = "cmd.exe";
+                        process.Start();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Arquivos ADB não encontrados.\n\nInstale os Drivers ADB.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+
+                case "miflash":
+                    try
+                    {
+                        if (File.Exists(@"adb/miflash/XiaoMiFlash.exe"))
+                        {
+                            System.Diagnostics.Process process2 = new Process();
+                            process2.StartInfo.WorkingDirectory = "adb/miflash";
+                            process2.StartInfo.FileName = "XiaoMiFlash.exe";
+                            process2.Start();
+                            process2.WaitForExit();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Arquivos do Mi Flash não encontrados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    break;
+
+                case "adb13":
+                    try
+                    {
+                        if (File.Exists(@"adb/driver/adbsetup13.exe"))
+                        {
+                            System.Diagnostics.Process process2 = new Process();
+                            process2.StartInfo.WorkingDirectory = "adb/driver";
+                            process2.StartInfo.FileName = "adbsetup13.exe";
+                            process2.Start();
+                            process2.WaitForExit();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Arquivos do ADB Driver Setup não encontrados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    break;
+
+                case "adb143":
+                    try
+                    {
+                        if (File.Exists(@"adb/driver/adbsetup143.exe"))
+                        {
+                            System.Diagnostics.Process process2 = new Process();
+                            process2.StartInfo.WorkingDirectory = "adb/driver";
+                            process2.StartInfo.FileName = "adbsetup143.exe";
+                            process2.Start();
+                            process2.WaitForExit();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Arquivos do ADB Driver Setup não encontrados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    break;
+
+                case "adbMinimal":
+                    try
+                    {
+                        if (File.Exists(@"adb/driver/minimal_adb_fastboot_v1.4.3_setup.exe"))
+                        {
+                            System.Diagnostics.Process process2 = new Process();
+                            process2.StartInfo.WorkingDirectory = "adb/driver";
+                            process2.StartInfo.FileName = "minimal_adb_fastboot_v1.4.3_setup.exe";
+                            process2.Start();
+                            process2.WaitForExit();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Arquivos do ADB Driver Setup não encontrados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    break;
+
+                case "platformTools":
+                    void copiarPlatformTools()
+                    {
+                        try
+                        {
+                            string pastaOrigem = "adb/driver/platform-tools";
+                            string pastaDestino = @"C:/adb/";
+                            string[] files = Directory.GetFiles(pastaOrigem);
+                            foreach (string arquivos in files)
+                            {
+                                File.Copy(arquivos, pastaDestino + Path.GetFileName(arquivos), true);
+                            }
+                            MessageBox.Show("Arquivos do Platform Tools copiados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+
+                    if (!Directory.Exists(@"C:/adb"))
+                    {
+                        if (MessageBox.Show("O diretório 'C:/adb' não existe, deseja criar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            Directory.CreateDirectory(@"C:/adb");
+                            MessageBox.Show("Pasta criada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            copiarPlatformTools();
+                        }
+                    }
+                    else
+                    {
+                        copiarPlatformTools();
+                    }
+                    
+                    break;
             }
 
         }
@@ -166,7 +305,7 @@ namespace WindowsFormsApp1
                 if (MessageBox.Show("O diretório 'C:/adb' não existe, deseja criar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     Directory.CreateDirectory(@"C:/adb");
-                    MessageBox.Show("Instale os ADB Drivers", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Pasta criada, instale ADB Drivers", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -208,17 +347,7 @@ namespace WindowsFormsApp1
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(@"C:/adb"))
-            {
-                System.Diagnostics.Process process = new Process();
-                process.StartInfo.WorkingDirectory = @"C:/adb";
-                process.StartInfo.FileName = "cmd.exe";
-                process.Start();
-            }
-            else
-            {
-                MessageBox.Show("Arquivos ADB não encontrados.\n\nInstale os Drivers ADB.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            command("cmd");
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -228,27 +357,27 @@ namespace WindowsFormsApp1
 
         private void aDBDriver13ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            command("adb13");
         }
 
         private void aDBDriver143ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            command("adb143");
         }
 
         private void aDBMinimalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            command("adbMinimal");
         }
 
         private void miFlashToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            command("miflash");
         }
 
         private void platformToolsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            command("platformTools");
         }
 
         private void rOMsFastbootToolStripMenuItem_Click(object sender, EventArgs e)

@@ -204,42 +204,48 @@
             this.aDBDriver13ToolStripMenuItem,
             this.aDBDriver143ToolStripMenuItem,
             this.aDBMinimalToolStripMenuItem});
+            this.aDBDriversToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aDBDriversToolStripMenuItem.Image")));
             this.aDBDriversToolStripMenuItem.Name = "aDBDriversToolStripMenuItem";
-            this.aDBDriversToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.aDBDriversToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aDBDriversToolStripMenuItem.Text = "ADB Drivers";
             // 
             // aDBDriver13ToolStripMenuItem
             // 
+            this.aDBDriver13ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aDBDriver13ToolStripMenuItem.Image")));
             this.aDBDriver13ToolStripMenuItem.Name = "aDBDriver13ToolStripMenuItem";
-            this.aDBDriver13ToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.aDBDriver13ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aDBDriver13ToolStripMenuItem.Text = "ADB Driver 1.3";
             this.aDBDriver13ToolStripMenuItem.Click += new System.EventHandler(this.aDBDriver13ToolStripMenuItem_Click);
             // 
             // aDBDriver143ToolStripMenuItem
             // 
+            this.aDBDriver143ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aDBDriver143ToolStripMenuItem.Image")));
             this.aDBDriver143ToolStripMenuItem.Name = "aDBDriver143ToolStripMenuItem";
-            this.aDBDriver143ToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.aDBDriver143ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aDBDriver143ToolStripMenuItem.Text = "ADB Driver 1.4.3";
             this.aDBDriver143ToolStripMenuItem.Click += new System.EventHandler(this.aDBDriver143ToolStripMenuItem_Click);
             // 
             // aDBMinimalToolStripMenuItem
             // 
+            this.aDBMinimalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aDBMinimalToolStripMenuItem.Image")));
             this.aDBMinimalToolStripMenuItem.Name = "aDBMinimalToolStripMenuItem";
-            this.aDBMinimalToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.aDBMinimalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aDBMinimalToolStripMenuItem.Text = "ADB Minimal";
             this.aDBMinimalToolStripMenuItem.Click += new System.EventHandler(this.aDBMinimalToolStripMenuItem_Click);
             // 
             // miFlashToolStripMenuItem1
             // 
+            this.miFlashToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("miFlashToolStripMenuItem1.Image")));
             this.miFlashToolStripMenuItem1.Name = "miFlashToolStripMenuItem1";
-            this.miFlashToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
+            this.miFlashToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.miFlashToolStripMenuItem1.Text = "Mi Flash";
             this.miFlashToolStripMenuItem1.Click += new System.EventHandler(this.miFlashToolStripMenuItem1_Click);
             // 
             // platformToolsToolStripMenuItem
             // 
+            this.platformToolsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("platformToolsToolStripMenuItem.Image")));
             this.platformToolsToolStripMenuItem.Name = "platformToolsToolStripMenuItem";
-            this.platformToolsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.platformToolsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.platformToolsToolStripMenuItem.Text = "Platform Tools";
             this.platformToolsToolStripMenuItem.Click += new System.EventHandler(this.platformToolsToolStripMenuItem_Click);
             // 
